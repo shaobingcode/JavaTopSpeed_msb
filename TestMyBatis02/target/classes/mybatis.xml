@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 加载数据库文件配置-->
+    <properties resource="db.properties"></properties>
+    <!-- 起别名属性配置-->
+    <typeAliases>
+        <typeAlias type="com.msb.pojo.Book" alias="book"></typeAlias>
+        <package name="com.msb.pojo"/>
+    </typeAliases>
+
+    <environments default="mysql">
+        <!--> Mysql 数据库配置信息<-->
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <mappers>
+        <mapper resource="com/msb/mapper/BookMapper.xml"></mapper>
+    </mappers>
+</configuration>
